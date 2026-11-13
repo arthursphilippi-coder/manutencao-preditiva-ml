@@ -33,3 +33,45 @@ A base tem 10.000 registros de máquinas e apenas cerca de 3,4% são falhas, ou 
 - As colunas `falha_twf`, `falha_hdf`, `falha_pwf`, `falha_osf` e `falha_rnf` ficaram fora das variáveis preditoras, pois só são conhecidas depois que a falha acontece (vazamento de dados).
 - A coluna `tipo` (L, M, H) foi codificada de forma ordinal (0, 1, 2).
 - O SMOTE foi aplicado depois da divisão e só no treino; o teste mantém a distribuição real.
+
+
+## 3. Estrutura do repositório
+
+```
+manutencao-preditiva-ml/
+├── data/
+│   └── manutencao_preditiva.csv      # base de dados
+├── docs/
+│   └── anotações do Departamento de Engenharia.docx
+├── projeto_manutencao_preditiva.ipynb  # notebook principal (7 fases)
+├── requirements.txt                    # dependências com versões
+└── README.md
+```
+
+## 4. Como executar
+
+Pré-requisito: Python 3.14 e Git instalados.
+
+1. Clone o repositório e entre na pasta:
+
+```powershell
+git clone https://github.com/arthursphilippi-coder/manutencao-preditiva-ml.git
+cd manutencao-preditiva-ml
+```
+
+2. Crie e ative um ambiente virtual (Windows PowerShell):
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+3. Instale as dependências:
+
+```powershell
+pip install -r requirements.txt
+```
+
+4. Abra o notebook `projeto_manutencao_preditiva.ipynb` no VS Code ou no Jupyter, selecione o kernel do ambiente `.venv` e execute todas as células (**Run All**).
+
+Os dados são lidos por caminho relativo (`data/manutencao_preditiva.csv`), então o notebook funciona em qualquer máquina sem ajustes.
