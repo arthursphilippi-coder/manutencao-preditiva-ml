@@ -75,3 +75,26 @@ pip install -r requirements.txt
 4. Abra o notebook `projeto_manutencao_preditiva.ipynb` no VS Code ou no Jupyter, selecione o kernel do ambiente `.venv` e execute todas as células (**Run All**).
 
 Os dados são lidos por caminho relativo (`data/manutencao_preditiva.csv`), então o notebook funciona em qualquer máquina sem ajustes.
+
+## 5. Resultados
+
+Acurácia no conjunto de teste (2.000 registros), com os melhores parâmetros de cada algoritmo:
+
+| Modelo | Configuração | Acurácia no teste |
+|---|---|---|
+| KNN | K = 3 | 90,45% |
+| Árvore de Decisão | `max_depth = None` | 92,80% |
+
+**Veredito:** a Árvore de Decisão teve a maior acurácia no teste e é o modelo recomendado.
+
+**Overfitting:** a árvore sem limite de profundidade chegou a 33 níveis e acertou 99,26% do treino contra 92,80% do teste. Com `max_depth = 5`, treino e teste ficaram praticamente iguais (cerca de 89,95%), sendo a configuração mais estável.
+
+**Ressalva sobre a métrica:** sempre prever "sem falha" já acertaria 96,6% do teste, então a acurácia sozinha não mede bem a detecção de falhas. A matriz de confusão mostra que os modelos detectam cerca de 65% das falhas (recall de 0,647 no KNN e 0,662 na árvore).
+
+## 6. Melhorias possíveis
+
+- Usar validação cruzada para escolher os hiperparâmetros, deixando o teste só para a avaliação final.
+- Usar `SMOTENC`, versão do SMOTE para variáveis categóricas, já que `tipo_cod` é categórica.
+- Calcular as médias e medianas da imputação só com os dados de treino, evitando um vazamento pequeno de informação.
+- Adotar recall e F1-score como métricas principais, pois o custo de uma falha não detectada é maior que o de um alarme falso.
+- Testar outros algoritmos, como Random Forest e Gradient Boosting.
