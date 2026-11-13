@@ -98,3 +98,10 @@ Acurácia no conjunto de teste (2.000 registros), com os melhores parâmetros de
 - Calcular as médias e medianas da imputação só com os dados de treino, evitando um vazamento pequeno de informação.
 - Adotar recall e F1-score como métricas principais, pois o custo de uma falha não detectada é maior que o de um alarme falso.
 - Testar outros algoritmos, como Random Forest e Gradient Boosting.
+
+## 7. Organização do Git
+
+- `main`: versão final do projeto.
+- `develop`: integração das funcionalidades.
+- Uma branch por tarefa, criada a partir da `develop`: `feature/setup`, `feature/eda`, `feature/data-prep`, `feature/feature-engineering`, `feature/split-balanceamento`, `feature/escalonamento`, `feature/tuning`, `feature/avaliacao-final` e `feature/readme`.
+- Cada branch foi integrada por Pull Request e mantida no repositório.
