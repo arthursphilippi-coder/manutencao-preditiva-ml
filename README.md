@@ -105,7 +105,3 @@ Acurácia no conjunto de teste (2.000 registros), com os melhores parâmetros de
 - `develop`: integração das funcionalidades.
 - Uma branch por tarefa, criada a partir da `develop`: `feature/setup`, `feature/eda`, `feature/data-prep`, `feature/feature-engineering`, `feature/split-balanceamento`, `feature/escalonamento`, `feature/tuning`, `feature/avaliacao-final` e `feature/readme`.
 - Cada branch foi integrada por Pull Request e mantida no repositório.
-
-## 8. Vídeo de apresentação
-
-[Assista ao vídeo de apresentação do projeto](https://drive.google.com/drive/folders/1k9gpH_8erkSYH7b-93Ap7_ZsHfTVu4d_?usp=sharing)
